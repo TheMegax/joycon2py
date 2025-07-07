@@ -1,5 +1,6 @@
 import asyncio
 from bleak import BleakScanner, BleakClient
+import XInput as xi
 
 # Constants
 JOYCON_MANUFACTURER_ID = 1363
@@ -30,7 +31,7 @@ class Player:
 
         # Explicit garbage collection to prevent reuse issues
         gc.collect()
-        self.gamepad
+        self.gamepad = xi.get_connected()
 
 def decode_joystick(data):
     try:
